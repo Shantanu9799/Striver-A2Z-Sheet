@@ -1,3 +1,5 @@
+// User function Template for C++
+
 /*
 class Node{
 public:
@@ -24,14 +26,14 @@ class Solution {
   public:
     Node* constructDLL(vector<int>& arr) {
         // code here
-        Node* head = new Node(arr[0]);
-        Node* curr = head;
+        Node *first = new Node(arr[0]);
+        Node *nextNode = first;
         for(int i = 1; i < arr.size(); ++i) {
-            Node* newNode = new Node(arr[i]);
-            curr -> next = newNode;
-            newNode -> prev = curr;
-            curr = newNode;
+            Node *newNode = new Node(arr[i]);
+            newNode -> prev = nextNode;
+            nextNode -> next = newNode;
+            nextNode = nextNode -> next;
         }
-        return head;
+        return first;
     }
 };
